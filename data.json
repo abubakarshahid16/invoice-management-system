@@ -1,0 +1,154 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "AHMAD RAZA ",
+      "phone": "03217437000",
+      "email": "abubakarshahid832@gmail.com",
+      "address": "88A satellite town gujranwala ",
+      "created_at": "2025-06-14T23:09:50.175738"
+    },
+    {
+      "id": 2,
+      "name": "Eman shahid",
+      "phone": "03211690837",
+      "email": "emanshahid1976@gmail.com",
+      "address": "88A satellite town gujranwala",
+      "created_at": "2025-06-14T23:31:27.685814"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "make": "toyota",
+      "model": "suzuki",
+      "year": 2002,
+      "plate": "123",
+      "customer_id": 1
+    },
+    {
+      "id": 2,
+      "make": "Sonata",
+      "model": "2025",
+      "year": 2025,
+      "plate": "aa964",
+      "customer_id": 2
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "name": "Oil Change",
+      "description": "Full synthetic oil change with filter",
+      "price": 45.0,
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "name": "Brake Pad Replacement",
+      "description": "Front brake pad replacement",
+      "price": 120.0,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "name": "Tire Rotation",
+      "description": "Four tire rotation and balance",
+      "price": 35.0,
+      "is_active": true
+    },
+    {
+      "id": 4,
+      "name": "Air Filter Replacement",
+      "description": "Engine air filter replacement",
+      "price": 25.0,
+      "is_active": true
+    },
+    {
+      "id": 5,
+      "name": "Battery Replacement",
+      "description": "Car battery replacement",
+      "price": 95.0,
+      "is_active": true
+    },
+    {
+      "id": 6,
+      "name": "Wheel Alignment",
+      "description": "Four-wheel alignment",
+      "price": 75.0,
+      "is_active": true
+    },
+    {
+      "id": 7,
+      "name": "Spark Plug Replacement",
+      "description": "Replace all spark plugs",
+      "price": 85.0,
+      "is_active": true
+    },
+    {
+      "id": 8,
+      "name": "Transmission Fluid Change",
+      "description": "Transmission fluid and filter change",
+      "price": 150.0,
+      "is_active": true
+    },
+    {
+      "id": 9,
+      "name": "tyere change ",
+      "description": "we will change tyeres for you ",
+      "price": 50.0,
+      "is_active": true
+    }
+  ],
+  "invoices": [
+    {
+      "id": 1,
+      "invoice_number": "INV-20250614-D4074748",
+      "customer_id": 1,
+      "vehicle_id": 1,
+      "issue_date": "2025-06-14",
+      "due_date": "2025-07-14",
+      "subtotal": 45,
+      "tax_rate": 15,
+      "tax_amount": 6.75,
+      "total": 51.75,
+      "status": "paid",
+      "notes": "",
+      "created_at": "2025-06-14T23:12:00.311400",
+      "items": [
+        {
+          "service_id": 1,
+          "quantity": 1,
+          "unit_price": 45
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "invoice_number": "INV-20250614-D97799D9",
+      "customer_id": 2,
+      "vehicle_id": 2,
+      "issue_date": "2025-06-14",
+      "due_date": "2025-07-17",
+      "subtotal": 320,
+      "tax_rate": 15,
+      "tax_amount": 48.0,
+      "total": 368.0,
+      "status": "pending",
+      "notes": "My work should be properly done",
+      "created_at": "2025-06-14T23:34:35.825571",
+      "items": [
+        {
+          "service_id": 9,
+          "quantity": 4,
+          "unit_price": 50
+        },
+        {
+          "service_id": 2,
+          "quantity": 1,
+          "unit_price": 120
+        }
+      ]
+    }
+  ]
+}

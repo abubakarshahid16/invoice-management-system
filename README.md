@@ -4,6 +4,16 @@ A Flask-based business application for managing workshop customers, vehicles, in
 
 ![Invoice Management System architecture](docs/architecture-overview.svg)
 
+## Restored Frontend Preview
+
+| Login | Dashboard |
+| --- | --- |
+| ![Login screen](docs/screenshots/login.png) | ![Dashboard screen](docs/screenshots/dashboard.png) |
+
+| Create Invoice |
+| --- |
+| ![Create invoice screen](docs/screenshots/create_invoice.png) |
+
 ## Overview
 
 This repository preserves the main backend implementation for a workshop invoicing system with:
@@ -81,11 +91,11 @@ Current status:
 - the SQLAlchemy models and database helpers are present
 - PDF generation support is present
 - deployment-oriented notes and helper scripts are present
-- some front-end template assets appear to be incomplete or missing from the repo snapshot
+- a minimal runnable template set has now been restored for demo and portfolio use
 
 That means the strongest honest claim is:
 
-> This repository captures the core implementation and business logic of the Invoice Management System, but some UI template assets may still need to be restored for a complete out-of-the-box local run.
+> This repository captures the core implementation and business logic of the Invoice Management System, and now includes a restored minimal frontend layer for local demos, screenshots, and portfolio presentation.
 
 ## Local Setup
 
@@ -137,6 +147,7 @@ The repository also includes convenience launchers:
 
 - [`start.bat`](start.bat)
 - [`start_server.bat`](start_server.bat)
+- [`run_local_server.py`](run_local_server.py)
 
 ## Expected User Workflow
 
@@ -152,10 +163,9 @@ The repository also includes convenience launchers:
 
 This repository can still be improved further by:
 
-- restoring the full Flask `templates/` directory
 - adding a `static/` folder for CSS, JS, and images
 - reducing duplicated deployment notes across multiple documentation files
-- adding verified UI screenshots after the front-end template set is fully restored
+- expanding the restored minimal template set into a fuller production UI
 
 ## Why This Project Matters
 

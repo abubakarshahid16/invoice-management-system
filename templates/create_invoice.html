@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Create Invoice{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Create Invoice</h1>
+    <p class="muted">Use this simplified form to add a customer, line items, and invoice totals.</p>
+    <form method="post">
+        <div class="grid grid-2">
+            <div>
+                <label>Customer Name</label>
+                <input name="customer_name" required>
+            </div>
+            <div>
+                <label>Customer Phone</label>
+                <input name="customer_phone" placeholder="(123) 456-7890" required>
+            </div>
+        </div>
+        <div class="grid grid-2">
+            <div>
+                <label>Service Description</label>
+                <input name="service_description[]" value="{{ predefined_services[0].service_name if predefined_services else 'General Service' }}">
+            </div>
+            <div>
+                <label>Service Amount</label>
+                <input name="service_amount[]" type="number" step="0.01" value="{{ predefined_services[0].price if predefined_services else '100.00' }}">
+            </div>
+        </div>
+        <div class="grid grid-2">
+            <div>
+                <label>Second Service Description</label>
+                <input name="service_description[]" value="">
+            </div>
+            <div>
+                <label>Second Service Amount</label>
+                <input name="service_amount[]" type="number" step="0.01" value="">
+            </div>
+        </div>
+        <div class="grid grid-4">
+            <div><label>Subtotal</label><input name="subtotal" type="number" step="0.01" value="100.00"></div>
+            <div><label>Tax Rate</label><input name="tax_rate" type="number" step="0.01" value="13.0"></div>
+            <div><label>Tax Amount</label><input name="tax_amount" type="number" step="0.01" value="13.00"></div>
+            <div><label>Total</label><input name="total" type="number" step="0.01" value="113.00"></div>
+        </div>
+        <button type="submit">Save Invoice</button>
+    </form>
+</div>
+{% endblock %}

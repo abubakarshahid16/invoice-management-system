@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Invoices{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Invoices</h1>
+    <table>
+        <thead><tr><th>Invoice</th><th>Customer</th><th>Status</th><th>Total</th><th>Action</th></tr></thead>
+        <tbody>
+        {% for invoice in invoices %}
+            <tr>
+                <td>{{ invoice.invoice_number }}</td>
+                <td>{{ invoice.customer.name if invoice.customer else 'Unknown' }}</td>
+                <td>{{ invoice.status }}</td>
+                <td>${{ '%.2f'|format(invoice.total or 0) }}</td>
+                <td><a href="{{ url_for('view_invoice', invoice_id=invoice.id) }}">View</a></td>
+            </tr>
+        {% else %}
+            <tr><td colspan="5">No invoices yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Revenue{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Revenue Overview</h1>
+    <div class="stat"><div class="muted">Total Revenue</div><div class="stat-value">${{ '%.2f'|format(total_revenue or 0) }}</div></div>
+</div>
+{% endblock %}

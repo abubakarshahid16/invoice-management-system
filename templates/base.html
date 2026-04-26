@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Invoice Management System{% endblock %}</title>
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --panel: #ffffff;
+            --ink: #17324d;
+            --muted: #5b7288;
+            --accent: #1f6feb;
+            --accent-2: #0c8f6a;
+            --border: #d7e1ea;
+            --danger: #c2410c;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(180deg, #f9fbfd 0%, var(--bg) 100%);
+            color: var(--ink);
+        }
+        a { color: var(--accent); text-decoration: none; }
+        .shell {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background: #0f2740;
+            color: #eef4fb;
+            padding: 24px 18px;
+        }
+        .brand {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .tagline {
+            font-size: 13px;
+            color: #adc3d8;
+            margin-bottom: 24px;
+        }
+        .nav a {
+            display: block;
+            color: #eef4fb;
+            padding: 10px 12px;
+            border-radius: 10px;
+            margin-bottom: 6px;
+        }
+        .nav a:hover { background: rgba(255,255,255,0.1); }
+        .content { padding: 28px; }
+        .hero, .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 22px;
+            box-shadow: 0 8px 30px rgba(18, 61, 91, 0.06);
+        }
+        .hero { margin-bottom: 20px; }
+        h1, h2, h3 { margin-top: 0; }
+        .muted { color: var(--muted); }
+        .grid {
+            display: grid;
+            gap: 18px;
+        }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+        .stat {
+            padding: 18px;
+            border-radius: 16px;
+            background: #f8fbff;
+            border: 1px solid var(--border);
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #c8d6e4;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #fff;
+            font: inherit;
+        }
+        button, .button {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            padding: 11px 16px;
+            font: inherit;
+            cursor: pointer;
+        }
+        .button.alt { background: var(--accent-2); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+        }
+        .flash {
+            padding: 12px 14px;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            background: #eff6ff;
+            border: 1px solid #bfd4f5;
+        }
+        .flash.error, .flash.danger { background: #fff2e8; border-color: #f3c6a8; color: var(--danger); }
+        .list-inline { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; list-style: none; }
+        .chip {
+            background: #eef4fb;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+        .auth-shell {
+            max-width: 520px;
+            margin: 64px auto;
+        }
+        @media (max-width: 900px) {
+            .shell { grid-template-columns: 1fr; }
+            .sidebar { padding-bottom: 10px; }
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% if session.get('logged_in') %}
+    <div class="shell">
+        <aside class="sidebar">
+            <div class="brand">Invoice System</div>
+            <div class="tagline">Workshop operations dashboard</div>
+            <nav class="nav">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('create_invoice') }}">Create Invoice</a>
+                <a href="{{ url_for('invoices') }}">Invoices</a>
+                <a href="{{ url_for('customers') }}">Customers</a>
+                <a href="{{ url_for('vehicles') }}">Vehicles</a>
+                <a href="{{ url_for('company_settings') }}">Company Settings</a>
+                <a href="{{ url_for('select_company') }}">Select Company</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            </nav>
+        </aside>
+        <main class="content">
+{% else %}
+        <main class="content">
+            <div class="auth-shell">
+{% endif %}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+{% if session.get('logged_in') %}
+        </main>
+    </div>
+{% else %}
+            </div>
+        </main>
+{% endif %}
+</body>
+</html>

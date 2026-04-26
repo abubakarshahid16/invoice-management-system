@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}View Invoice{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>{{ invoice.invoice_number }}</h1>
+    <p class="muted">Customer: {{ invoice.customer.name if invoice.customer else 'Unknown' }}</p>
+    <table>
+        <thead><tr><th>Description</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr></thead>
+        <tbody>
+        {% for item in invoice.items %}
+            <tr>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>${{ '%.2f'|format(item.unit_price or 0) }}</td>
+                <td>${{ '%.2f'|format(item.total or 0) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p><strong>Subtotal:</strong> ${{ '%.2f'|format(invoice.subtotal or 0) }}</p>
+    <p><strong>Tax:</strong> ${{ '%.2f'|format(invoice.tax_amount or 0) }}</p>
+    <p><strong>Total:</strong> ${{ '%.2f'|format(invoice.total or 0) }}</p>
+    <p><a class="button" href="{{ url_for('download_invoice_pdf', invoice_id=invoice.id) }}">Download PDF</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Manage Services{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Manage Services</h1>
+    <p class="muted">{{ company_name }}</p>
+    <table>
+        <thead><tr><th>Service</th><th>Price</th><th>Status</th></tr></thead>
+        <tbody>
+        {% for service in services %}
+            <tr><td>{{ service.service_name }}</td><td>${{ '%.2f'|format(service.price or 0) }}</td><td>{{ 'Active' if service.is_active else 'Inactive' }}</td></tr>
+        {% else %}
+            <tr><td colspan="3">No services configured yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Login</h1>
+    <p class="muted">Use the restored minimal interface to access the workshop dashboard.</p>
+    {% if error %}<div class="flash danger">{{ error }}</div>{% endif %}
+    <form method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="admin">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="admin123">
+        <button type="submit">Sign In</button>
+    </form>
+    <p class="muted">Default local admin is created automatically by the app: <strong>admin / admin123</strong>.</p>
+    <p><a href="{{ url_for('signup') }}">Create a new account</a></p>
+</div>
+{% endblock %}

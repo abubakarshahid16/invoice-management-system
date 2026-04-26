@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Vehicles{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Vehicles</h1>
+    <p><a class="button" href="{{ url_for('add_vehicle_route') }}">Add Vehicle</a></p>
+    <table>
+        <thead><tr><th>Year</th><th>Make</th><th>Model</th><th>VIN</th><th>Plate</th></tr></thead>
+        <tbody>
+        {% for vehicle in vehicles %}
+            <tr><td>{{ vehicle.year }}</td><td>{{ vehicle.make }}</td><td>{{ vehicle.model }}</td><td>{{ vehicle.vin or '' }}</td><td>{{ vehicle.license_plate or '' }}</td></tr>
+        {% else %}
+            <tr><td colspan="5">No vehicles yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Add Customer{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Add Customer</h1>
+    {% if message %}<div class="flash">{{ message }}</div>{% endif %}
+    <form method="post">
+        <label>Name</label><input name="name" required>
+        <label>Phone</label><input name="phone" placeholder="(123) 456-7890" required>
+        <label>Email</label><input name="email" type="email">
+        <label>Address</label><textarea name="address"></textarea>
+        <button type="submit">Save Customer</button>
+    </form>
+</div>
+{% endblock %}

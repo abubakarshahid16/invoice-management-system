@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Customers</h1>
+    <p><a class="button" href="{{ url_for('add_customer_route') }}">Add Customer</a></p>
+    <table>
+        <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Address</th></tr></thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr><td>{{ customer.name }}</td><td>{{ customer.phone or '' }}</td><td>{{ customer.email or '' }}</td><td>{{ customer.address or '' }}</td></tr>
+        {% else %}
+            <tr><td colspan="4">No customers yet.</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

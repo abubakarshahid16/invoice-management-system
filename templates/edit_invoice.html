@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Edit Invoice{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Edit Invoice</h1>
+    <p class="muted">This restored frontend exposes the edit route as a simple placeholder page.</p>
+    <p>Invoice: {{ invoice.invoice_number if invoice.invoice_number else invoice.id }}</p>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>{{ company.name if company else 'Invoice Dashboard' }}</h1>
+    <p class="muted">Welcome back, {{ session.get('username', 'user') }}. This restored UI provides a clean operational view of invoices, customers, vehicles, and revenue.</p>
+    <ul class="list-inline">
+        <li class="chip">Current date: {{ current_date }}</li>
+        <li class="chip">Selected company: {{ selected_company }}</li>
+        <li class="chip">Year: {{ current_year }}</li>
+    </ul>
+</section>
+<section class="grid grid-4">
+    <div class="stat"><div class="muted">Invoices</div><div class="stat-value">{{ total_invoices_count }}</div></div>
+    <div class="stat"><div class="muted">Revenue</div><div class="stat-value">${{ '%.2f'|format(total_revenue or 0) }}</div></div>
+    <div class="stat"><div class="muted">Customers</div><div class="stat-value">{{ total_customers_count }}</div></div>
+    <div class="stat"><div class="muted">Vehicles</div><div class="stat-value">{{ total_vehicles_count }}</div></div>
+</section>
+<section class="grid grid-2" style="margin-top:18px;">
+    <div class="card">
+        <h2>Quick Actions</h2>
+        <p class="muted">Jump straight into the most common workshop workflows.</p>
+        <p><a class="button" href="{{ url_for('create_invoice') }}">Create Invoice</a></p>
+        <p><a class="button alt" href="{{ url_for('add_customer_route') }}">Add Customer</a></p>
+    </div>
+    <div class="card">
+        <h2>System Notes</h2>
+        <p class="muted">This frontend was restored to make the repository runnable again for demos and screenshots.</p>
+    </div>
+</section>
+{% endblock %}

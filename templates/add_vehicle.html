@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Add Vehicle{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Add Vehicle</h1>
+    {% if message %}<div class="flash">{{ message }}</div>{% endif %}
+    <form method="post">
+        <div class="grid grid-2">
+            <div><label>Year</label><input name="year" type="number" required></div>
+            <div><label>Make</label><input name="make" required></div>
+        </div>
+        <div class="grid grid-2">
+            <div><label>Model</label><input name="model" required></div>
+            <div><label>VIN</label><input name="vin"></div>
+        </div>
+        <div class="grid grid-2">
+            <div><label>License Plate</label><input name="license_plate"></div>
+            <div>
+                <label>Customer</label>
+                <select name="customer_id">
+                    <option value="">No linked customer</option>
+                    {% for customer in customers %}
+                    <option value="{{ customer.id }}">{{ customer.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit">Save Vehicle</button>
+    </form>
+</div>
+{% endblock %}

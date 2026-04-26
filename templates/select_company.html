@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Select Company{% endblock %}
+{% block content %}
+<div class="hero">
+    <h1>Select Company</h1>
+    <div class="grid grid-2">
+        {% for company in companies %}
+        <div class="card">
+            <h3>{{ company.name }}</h3>
+            <p class="muted">Saved company profile in the local database.</p>
+        </div>
+        {% endfor %}
+        <div class="card"><h3>CN Motors Ltd</h3><p><a href="{{ url_for('set_company', company_type='cn_motors') }}">Use this company</a></p></div>
+        <div class="card"><h3>CN Auto Collision</h3><p><a href="{{ url_for('set_company', company_type='cn_collision') }}">Use this company</a></p></div>
+        <div class="card"><h3>Generic Services</h3><p><a href="{{ url_for('set_company', company_type='generic') }}">Use this company</a></p></div>
+    </div>
+</div>
+{% endblock %}

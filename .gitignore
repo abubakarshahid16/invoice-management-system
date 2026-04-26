@@ -5,7 +5,12 @@ __pycache__/
 *.pyd
 .Python
 *.db
+*.db.bak
+*_backup_*.db
 .env
 .DS_Store
 Thumbs.db
-*.log 
+*.log
+.pytest_cache/
+.mypy_cache/
+.vscode/

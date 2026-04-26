@@ -1,43 +1,38 @@
 @echo off
 echo ============================================================
-echo 🚗 Mechanic Shop Invoice Management System
+echo Mechanic Shop Invoice Management System
 echo ============================================================
 echo.
 
-:: Check if virtual environment exists
 if not exist "venv" (
-    echo Virtual environment not found!
-    echo Please run setup.bat first to set up the system.
+    echo Virtual environment not found.
+    echo Run setup.bat first to create and configure it.
     echo.
     pause
     exit /b 1
 )
 
-:: Kill any existing Python processes
 taskkill /F /IM python.exe 2>nul
 
-:: Activate virtual environment and run the app
 echo Starting the application...
 echo.
-echo The browser should open automatically.
-echo If it doesn't, try this URL:
-echo http://127.0.0.1:4000
+echo Open this URL in your browser:
+echo http://127.0.0.1:5000
 echo.
-echo Press Ctrl+C to stop the server
+echo Press Ctrl+C to stop the server.
 echo ============================================================
 echo.
 
-:: Activate virtual environment and run the app
 call venv\Scripts\activate.bat
-python simple_app.py
+python app.py
 
 if errorlevel 1 (
     echo.
-    echo Error starting the application!
-    echo Please make sure you ran setup.bat first.
+    echo Error starting the application.
+    echo Make sure dependencies are installed and app.py exists.
     echo.
     pause
     exit /b 1
 )
 
-pause 
+pause

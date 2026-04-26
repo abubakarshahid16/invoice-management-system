@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Invoice Management System Architecture Overview</title>
+  <desc id="desc">A high-level architecture diagram showing users interacting with the Flask application, business modules, SQLite storage, and PDF generation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7f3ec"/>
+      <stop offset="100%" stop-color="#eef4f8"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f7fafc"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 17px 'Segoe UI', Arial, sans-serif; fill: #47627c; }
+      .card-title { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #17324d; }
+      .card-text { font: 400 15px 'Segoe UI', Arial, sans-serif; fill: #38536b; }
+      .small { font: 400 14px 'Segoe UI', Arial, sans-serif; fill: #567189; }
+      .line { stroke: #567189; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .outline { stroke: #d7e0e8; stroke-width: 2; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#567189"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="700" fill="url(#bg)"/>
+
+  <text x="70" y="75" class="title">Invoice Management System</text>
+  <text x="70" y="110" class="subtitle">High-level view of the Flask workflow, business modules, data layer, and PDF output.</text>
+
+  <rect x="70" y="180" rx="22" ry="22" width="220" height="140" fill="url(#card)" class="outline"/>
+  <text x="110" y="235" class="card-title">User Access</text>
+  <text x="110" y="270" class="card-text">Signup</text>
+  <text x="110" y="295" class="card-text">Login</text>
+  <text x="110" y="320" class="card-text">Dashboard navigation</text>
+
+  <rect x="360" y="140" rx="22" ry="22" width="300" height="220" fill="url(#card)" class="outline"/>
+  <text x="400" y="195" class="card-title">Flask Application</text>
+  <text x="400" y="230" class="card-text">Routes and request handling</text>
+  <text x="400" y="255" class="card-text">Validation and business logic</text>
+  <text x="400" y="280" class="card-text">Customer and vehicle workflows</text>
+  <text x="400" y="305" class="card-text">Invoice creation and editing</text>
+  <text x="400" y="330" class="card-text">Revenue and company settings</text>
+
+  <rect x="750" y="90" rx="22" ry="22" width="300" height="150" fill="url(#card)" class="outline"/>
+  <text x="790" y="145" class="card-title">Business Modules</text>
+  <text x="790" y="180" class="card-text">Customers</text>
+  <text x="790" y="205" class="card-text">Vehicles</text>
+  <text x="790" y="230" class="card-text">Service pricing and invoices</text>
+
+  <rect x="750" y="290" rx="22" ry="22" width="300" height="150" fill="url(#card)" class="outline"/>
+  <text x="790" y="345" class="card-title">Persistence Layer</text>
+  <text x="790" y="380" class="card-text">Flask-SQLAlchemy models</text>
+  <text x="790" y="405" class="card-text">SQLite workshop database</text>
+  <text x="790" y="430" class="card-text">Stored invoice records</text>
+
+  <rect x="750" y="490" rx="22" ry="22" width="300" height="120" fill="url(#card)" class="outline"/>
+  <text x="790" y="545" class="card-title">PDF Output</text>
+  <text x="790" y="580" class="card-text">ReportLab invoice export</text>
+
+  <rect x="360" y="440" rx="22" ry="22" width="300" height="170" fill="url(#card)" class="outline"/>
+  <text x="400" y="495" class="card-title">Operational Notes</text>
+  <text x="400" y="530" class="card-text">Deployment helpers</text>
+  <text x="400" y="555" class="card-text">Database setup scripts</text>
+  <text x="400" y="580" class="card-text">Project documentation and guides</text>
+
+  <path d="M290 250 L360 250" class="line"/>
+  <path d="M660 200 L750 165" class="line"/>
+  <path d="M660 265 L750 340" class="line"/>
+  <path d="M660 300 L750 540" class="line"/>
+  <path d="M510 360 L510 440" class="line"/>
+
+  <text x="70" y="655" class="small">Note: this diagram reflects the preserved backend-oriented repository structure and intended workflow.</text>
+</svg>

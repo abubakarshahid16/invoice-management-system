@@ -77,9 +77,10 @@ flowchart TD
 - [`generate_invoice_pdf.py`](generate_invoice_pdf.py): PDF invoice export logic
 - [`initialize_db.py`](initialize_db.py): database initialization helper
 - [`setup_database.py`](setup_database.py): additional database setup script
-- [`BUILD_GUIDE.md`](BUILD_GUIDE.md): implementation and deployment notes
-- [`VALIDATION_REPORT.md`](VALIDATION_REPORT.md): progress and validation notes
-- [`deployment_options.md`](deployment_options.md): deployment reference options
+- [`docs/guides/`](docs/guides): implementation, deployment, and improvement notes
+- [`docs/reports/`](docs/reports): validation and deployment-check artifacts
+- [`scripts/windows/`](scripts/windows): Windows helper scripts
+- [`storage/backups/`](storage/backups): database backup files
 
 ## Repository Status
 
@@ -145,8 +146,8 @@ http://127.0.0.1:5000
 
 The repository also includes convenience launchers:
 
-- [`start.bat`](start.bat)
-- [`start_server.bat`](start_server.bat)
+- [`scripts/windows/start.bat`](scripts/windows/start.bat)
+- [`scripts/windows/start_server.bat`](scripts/windows/start_server.bat)
 - [`run_local_server.py`](run_local_server.py)
 
 ## Expected User Workflow
@@ -166,6 +167,10 @@ This repository can still be improved further by:
 - adding a `static/` folder for CSS, JS, and images
 - reducing duplicated deployment notes across multiple documentation files
 - expanding the restored minimal template set into a fuller production UI
+
+## Current structure improvement
+
+Guides, reports, Windows helper scripts, and backup database files have been moved into dedicated folders so the repository root stays focused on the application code and runtime assets.
 
 ## Why This Project Matters
 
